@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Group – Urrrrr Expenses</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1 id="group-title">Group</h1>
+
+    <div class="card">
+      <h3>Add Expense</h3>
+      <input id="amount" type="number" placeholder="Amount" />
+      <input id="description" placeholder="Description" />
+
+      <button onclick="addExpense()">Add Expense</button>
+    </div>
+
+    <div class="card">
+      <h3>Expenses</h3>
+      <div id="expense-list"></div>
+    </div>
+
+    <script src="js/expenses.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

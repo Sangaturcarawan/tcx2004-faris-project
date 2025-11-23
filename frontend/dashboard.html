@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard – Urrrrr Expenses</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>User Dashboard</h1>
+
+    <div id="welcome" class="card"></div>
+
+    <div class="card">
+      <h2>Your Groups</h2>
+      <button onclick="loadGroups()">Refresh List</button>
+      <div id="group-list"></div>
+    </div>
+
+    <div class="card">
+      <h3>Create New Group</h3>
+      <input id="group-name" placeholder="Group name" />
+      <button onclick="createGroup()">Create Group</button>
+    </div>
+
+    <script src="js/groups.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
