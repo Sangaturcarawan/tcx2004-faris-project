@@ -6,6 +6,7 @@ from sqlalchemy import (
     UniqueConstraint)
 
 from app.database import Base
+from datetime import datetime
 
 class GroupMember(Base):
     __tablename__ = "group_members"

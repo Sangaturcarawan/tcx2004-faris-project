@@ -8,6 +8,8 @@ from app.auth.utils import get_current_user
 from app.groups.models import Group
 from app.schemas import GroupCreate, GroupOut
 from app.members.models import GroupMember
+from app.invitations.models import GroupInvitation
+from app.invitations.schemas import InvitationCreate, InvitationOut
 
 router = APIRouter(prefix="/groups", tags=["Groups"])
 
