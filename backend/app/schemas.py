@@ -43,3 +43,21 @@ class ExpenseOut(BaseModel):
 
     model_config = {"from_attributes": True}
 
+class GroupMemberBase(BaseModel):
+    user_id: int
+    role: str | None = "member"
+
+class GroupMemberCreate(GroupMemberBase):
+    pass
+
+class GroupMemberUpdate(BaseModel):
+    role: str
+
+class GroupMemberOut(BaseModel):
+    id: int
+    group_id: int
+    user_id: int
+    role: str
+
+    model_config = {"from_attributes": True}
+

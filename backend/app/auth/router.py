@@ -5,7 +5,7 @@ from passlib.hash import bcrypt
 
 from app.schemas import UserCreate, UserLogin, UserOut
 from app.auth.models import User
-from app.auth.utils import create_access_token, decode_access_token
+from app.auth.utils import create_access_token, decode_access_token, get_current_user
 from app.deps import get_db
 
 
@@ -37,3 +37,7 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
     token = create_access_token({"user_id": existing.id})
 
     return {"access_token": token, "token_type": "bearer"}
+
+@router.post("/logout")
+def logout(user = Depends(get_current_user)):
+    return {"message": "Logged out successfully. Token invalidated client-side"}
