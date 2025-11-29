@@ -1,3 +1,5 @@
+# run_all_tests.sh
+
 #!/bin/bash
 # Run all user story test scripts
 
@@ -15,6 +17,7 @@ SCRIPTS=(
   "test_user_story_3_members.sh"
   "test_user_story_4_invitations.sh"
   "test_user_story_5_audit.sh"
+  "test_user_story_6_expenses.sh"
 )
 
 for script in "${SCRIPTS[@]}"; do

@@ -1,6 +1,8 @@
 # app/schemas.py
+
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
+from typing import Optional, Dict
 
 
 class UserCreate(BaseModel):
@@ -32,12 +34,16 @@ class GroupOut(BaseModel):
 class ExpenseCreate(BaseModel):
     amount: float
     description: str
+    date: Optional[datetime] = None
+    shares: Optional[Dict] = None
 
 class ExpenseOut(BaseModel):
     id: int
     amount: float
     description: str
-    user_id: int
+    date: datetime
+    shares: Optional[Dict]
+    payer_id: int
     group_id: int
     created_at: datetime
 
