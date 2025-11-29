@@ -5,13 +5,14 @@ from app.database import Base, engine
 from app.auth.utils import get_current_user
 from app.members.models import GroupMember
 
+#import routers
 from app.auth.router import router as auth_router
 from app.groups.router import router as groups_router
 from app.expenses.router import router as expenses_router
 from app.payments.router import router as payments_router
 from app.members.router import router as members_router
-
-
+from app.invitations.router import router as invitations_router
+from app.audit.router import router as audit_router
 
 
 # Create FastAPI application instance
@@ -26,7 +27,8 @@ app.include_router(groups_router)
 app.include_router(expenses_router)
 app.include_router(payments_router)
 app.include_router(members_router)
-
+app.include_router(invitations_router)
+app.include_router(audit_router)
 
 @app.get("/")
 def home():

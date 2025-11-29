@@ -53,14 +53,34 @@ User Stories:
    - ADD MEMBERS TO EXPENSE GROUP
      - POST /groups/{group_id}/members/
    - UPDATE EXPENSE GROUP MEMBERS
+    - PUT /groups/{group_id}/members/{member_id}
    - REMOVE EXPENSE GROUP MEMBER
-   - LIST MEMBERS OF EXPENSE GROUP
+    - DELETE /groups/{group_id}/members{member_id}
+
+
+4. As a group member, I can invite new members to join a group and view the current member list so that I can keep group membership accurate and up to date.
+
+  - INVITE NEW MEMBERS
+  - VIEW CURRENT MEMBER LIST
+    - GET /groups/{group_id}/members/
+
+
+5. As a group admin, I can view a detailed audit trail of all changes to expenses and balances so that I can ensure transparency and accountability.
+
 
 FLOW OF EVENTS:
 
 Store email & password as environment variables:
 EMAIL="<email>"
 PASSWORD="<password>"
+
+faris@awesome.com
+faris
+
+
+zachary@awesome.com
+zachary
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE3NjQ0NDMwOTV9.Q-yNCLI76jk1cuXHLSWmI1h5guZKmOgl5xey8CbzcDo
 
 Sign up:
 curl -X POST "http://127.0.0.1:8000/auth/signup" -H "Content-Type: application/json" -d '{"email":"'"$EMAIL"'","password":"'"$PASSWORD"'"}'
@@ -132,3 +152,25 @@ curl -X PUT "http://127.0.0.1:8000/groups/2/members/1" -H "Content-Type: applica
 
 Remove member from group:
 curl -X DELETE "http://127.0.0.1:8000/groups/2/members/2" -H "Authorization: Bearer $TOKEN"
+
+Store group id to list all members:
+GRPMBRGETID=
+
+List members of a group:
+curl -X GET "http://127.0.0.1:8000/groups/$GRPMBRGETID/members/" -H "Authorization: Bearer $TOKEN"
+
+Store email of member to be invited:
+EMLINV=
+
+Store group id of expense group to invite others to:
+GRPINVID=
+
+Invite member to a group:
+curl -X POST "http://127.0.0.1:8000/invitations/groups/$GRPINVID/invite" -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"email": "'"$EMLINV"'"}'
+
+Accept invitation to be a member of a group:
+curl -X POST "http://127.0.0.1:8000/invitations/1/accept" -H "Authorization: Bearer $TOKEN"
+
+
+
+

@@ -1,3 +1,5 @@
+# app/members/models.py
+
 from sqlalchemy import (
     Column, 
     Integer, 

@@ -1,8 +1,10 @@
+# app/invitations/schemas.py
+
 from pydantic import BaseModel
 from datetime import datetime
 
 class InvitationCreate(BaseModel):
-    invitee_id: int
+    email: str
 
 class InvitationOut(BaseModel):
     id: int
@@ -10,6 +12,6 @@ class InvitationOut(BaseModel):
     inviter_id: int
     invitee_id: int
     status: str
+    created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
